@@ -1,0 +1,37 @@
+{
+    "name": "hyperf/memory",
+    "description": "An independent component that use to operate and manage memory.",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "swoole",
+        "hyperf",
+        "memory"
+    ],
+    "homepage": "https://hyperf.io",
+    "support": {
+        "issues": "https://github.com/hyperf/hyperf/issues",
+        "source": "https://github.com/hyperf/hyperf",
+        "docs": "https://hyperf.wiki",
+        "pull-request": "https://github.com/hyperf/hyperf/pulls"
+    },
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hyperf\\Memory\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.2-dev"
+        },
+        "hyperf": {
+            "config": "Hyperf\\Memory\\ConfigProvider"
+        }
+    }
+}
