@@ -1,0 +1,7 @@
+**
+!app/
+!bin/
+!config/
+!../product-service/migrations/
+!seeders/
+!composer.*

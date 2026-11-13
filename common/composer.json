@@ -1,0 +1,22 @@
+{
+    "name": "mall/common",
+    "description": "商城 7 个服务共用的横切代码：统一响应、错误码、业务异常、异常处理器、四个中间件",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2",
+        "hyperf/constants": "~3.2.0",
+        "hyperf/context": "~3.2.0",
+        "hyperf/contract": "~3.2.0",
+        "hyperf/exception-handler": "~3.2.0",
+        "hyperf/http-server": "~3.2.0",
+        "hyperf/logger": "~3.2.0",
+        "hyperf/redis": "~3.2.0",
+        "hyperf/validation": "~3.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mall\\Common\\": "src/"
+        }
+    }
+}

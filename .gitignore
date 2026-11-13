@@ -1,0 +1,7 @@
+/gateway/vendor
+/inventory-service/vendor
+/marketing-service/vendor
+/order-service/vendor
+/pay-service/vendor
+/product-service/vendor
+/user-service/vendor
