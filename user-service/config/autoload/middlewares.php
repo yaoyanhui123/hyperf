@@ -18,7 +18,7 @@ use \Mall\Common\Middleware\AccessLogMiddleware;
 return [
     'http' => [
         TraceIdMiddleware::class,
-        IdempotentMiddleware::class,
+//        IdempotentMiddleware::class,
         AccessLogMiddleware::class,
         ValidationMiddleware::class,
     ],

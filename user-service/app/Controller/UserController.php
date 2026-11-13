@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 
+use App\Request\RegisterRequest;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
 use Hyperf\HttpServer\Annotation\PostMapping;
 use Hyperf\HttpServer\Annotation\PutMapping;
 use Hyperf\HttpServer\Contract\RequestInterface;
+use Mall\Common\AppResponse;
 
 #[Controller(prefix: '/user')]
 class UserController
@@ -26,8 +28,11 @@ class UserController
     }
 
     #[PostMapping(path: 'register')]
-    public function register()
+    public function register(RegisterRequest $request)
     {
+        $request->validated();
+        $param = $request->post();
+        return AppResponse::ok($param);
 
     }
 

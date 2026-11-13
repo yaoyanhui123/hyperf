@@ -27,11 +27,11 @@ class User extends Model
      * The attributes that are mass assignable.
      * @var list<string>
      */
-    protected array $fillable = ['mobile', 'password', 'nickname', 'avatar', 'status', 'created_at', 'updated_at'];
+    protected array $fillable = ['mobile', 'nickname', 'avatar', 'status'];
 
     /**
      * The attributes that should be cast to native types.
      * @var array<string, mixed>
      */
-    protected array $casts = ['id' => 'integer', 'status' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
+    protected array $casts = ['id' => 'integer', 'status' => 'integer'];
 }
