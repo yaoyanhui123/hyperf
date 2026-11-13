@@ -22,8 +22,8 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'mobile' => 'require|mobile|unique:users',
-            'password' => 'require|min:6|alpha_dash:ascii',
+            'mobile' => 'required|mobile|unique:users',
+            'password' => 'required|min:6|alpha_dash:ascii',
             'nickname' => 'max:20',
             'avatar' => 'url',
         ];
@@ -32,10 +32,10 @@ class RegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'mobile.require' => '手机号不能为空',
-            'mobile.mobile' => '手机号格式不正确',
+            'mobile.required' => '手机号不能为空',
+            'mobile.mobile' => '手机号格式不正确11',
             'mobile.unique' => '手机号已存在',
-            'password.require' => '密码不能为空',
+            'password.required' => '密码不能为空',
             'password.min' => '密码长度不能少于6位',
             'password.alpha_dash' => '密码格式不正确',
             'nickname.max' => '昵称长度不能超过20个字符',
@@ -44,7 +44,7 @@ class RegisterRequest extends FormRequest
 
     }
 
-//    protected array $scenes = [
-//        'register' => ['mobile', 'password', 'nickname', 'avatar'],
-//    ];
+    protected array $scenes = [
+        'register' => ['mobile', 'password', 'nickname', 'avatar'],
+    ];
 }

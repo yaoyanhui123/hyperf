@@ -27,7 +27,7 @@ class AppExceptionHandler extends ExceptionHandler
 
     public function handle(Throwable $throwable, PsrResponseInterface $response)
     {
-        $this->loggerFactory->get('error')->error('unhandled', [
+        $this->loggerFactory->get('error', 'error')->error('unhandled', [
             'trace_id' => Context::get('trace_id'),
             'class' => get_class($throwable),
             'msg' => $throwable->getMessage(),

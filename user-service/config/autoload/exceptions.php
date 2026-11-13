@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-use Mall\Common\Handler\AppExceptionHandler;
-use Mall\Common\Handler\BusinessExceptionHandler;
 use Mall\Common\Handler\ValidationExceptionHandler;
+use Mall\Common\Handler\BusinessExceptionHandler;
+use Mall\Common\Handler\AppExceptionHandler;
 
 return [
     'handler' => [

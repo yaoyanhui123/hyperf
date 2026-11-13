@@ -19,9 +19,9 @@ final class AppResponse
         return ['code' => self::OK, 'msg' => $msg, 'data' => $data, 'trace_id' => self::traceId()];
     }
 
-    public static function fail(int $code, string $msg, mixed $data = null): array
+    public static function fail(int $code, string $msg = null, mixed $data = null): array
     {
-        return ['code' => $code, 'msg' => $msg, 'data' => $data, 'trace_id' => self::traceId()];
+        return ['code' => $code, 'msg' => $msg??ErrorCode::getMessage($code), 'data' => $data, 'trace_id' => self::traceId()];
     }
 
     public static function page(array $list, int $total, int $page, int $size): array

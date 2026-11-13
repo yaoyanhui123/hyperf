@@ -37,7 +37,7 @@ class AccessLogMiddleware implements MiddlewareInterface
             $status = 500;
             throw $e;
         } finally {
-            $this->factory->get('access')->info('access', [
+            $this->factory->get('access','access')->info('access', [
                 'trace_id' => (string) Context::get('trace_id', ''),
                 'method' => $request->getMethod(),
                 'path' => $request->getUri()->getPath(),

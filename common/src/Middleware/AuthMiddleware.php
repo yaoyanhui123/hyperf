@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mall\Common\Middleware;
 
+use App\Model\User;
 use Hyperf\Context\Context;
 use Hyperf\Contract\ConfigInterface;
 use Mall\Common\BusinessException;
@@ -32,8 +33,13 @@ class AuthMiddleware implements MiddlewareInterface
             throw new BusinessException(ErrorCode::UNAUTHORIZED);
         }
 
-        $payload = self::verify($token, (string) $this->config->get('app.jwt_secret', ''));
+        $payload = self::verify($token, (string) $this->config->get('jwt.secret', ''));
         if ($payload === null) {
+            throw new BusinessException(ErrorCode::UNAUTHORIZED);
+        }
+
+        $userInfo = User::query()->find((int) ($payload['uid'] ?? 0));
+        if (!$userInfo || $userInfo->status !== 1){
             throw new BusinessException(ErrorCode::UNAUTHORIZED);
         }
 

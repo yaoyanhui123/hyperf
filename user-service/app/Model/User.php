@@ -34,4 +34,14 @@ class User extends Model
      * @var array<string, mixed>
      */
     protected array $casts = ['id' => 'integer', 'status' => 'integer'];
+
+    public function addresses()
+    {
+        return $this->hasMany(UserAddress::class, 'user_id', 'id');
+    }
+    
+    public function wallet()
+    {
+        return $this->hasOne(UserWallet::class, 'user_id', 'id');
+    }
 }
