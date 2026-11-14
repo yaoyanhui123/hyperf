@@ -13,4 +13,5 @@ use Hyperf\ExceptionHandler\Listener\ErrorExceptionHandler;
 
 return [
     ErrorExceptionHandler::class,
+    \Mall\Common\Governance\HttpServiceRegisterListener::class,
 ];

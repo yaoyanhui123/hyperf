@@ -13,7 +13,8 @@ return [
     // 我作为消费方要调用的服务（第 6 章填）
     'consumers' => [],
 
-    // 我作为提供方额外要注册的服务（用注解就够了，这里一般留空）
+    // Hyperf 只会自动注册 #[RpcService] 的 RPC 服务；
+    // 纯 HTTP 服务靠 common 里的 HttpServiceRegisterListener 注册，所以这里留空
     'providers' => [],
 
     'drivers' => [
@@ -28,7 +29,7 @@ return [
             'ephemeral' => true,       // 临时实例：进程挂了自动摘除
             'cluster' => 'DEFAULT',
             'grpc' => [
-                'enable' => false,     // 用 HTTP 接口注册，不开 gRPC 通道
+                'enable' => false,     // 走 HTTP 接口注册，不开 gRPC 通道
                 'heartbeat' => 10,
             ],
         ],

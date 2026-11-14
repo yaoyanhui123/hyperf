@@ -15,12 +15,20 @@ common/
     │   ├── BusinessExceptionHandler.php    # 业务异常 → 200 + 业务码
     │   ├── ValidationExceptionHandler.php  # 校验失败 → 10001
     │   └── AppExceptionHandler.php         # 兜底 → 500 + error.log 堆栈
-    └── Middleware/
-        ├── TraceIdMiddleware.php      # trace_id 生成/透传
-        ├── AuthMiddleware.php         # JWT（HMAC-SHA256）
-        ├── AccessLogMiddleware.php    # 访问日志
-        └── IdempotentMiddleware.php   # 幂等（Redis SET NX EX）
+    ├── Middleware/
+    │   ├── TraceIdMiddleware.php      # trace_id 生成/透传
+    │   ├── AuthMiddleware.php         # JWT（HMAC-SHA256）
+    │   ├── AccessLogMiddleware.php    # 访问日志
+    │   └── IdempotentMiddleware.php   # 幂等（Redis SET NX EX）
+    ├── Controller/
+    │   └── HealthController.php       # GET /health 探针（第 5 章）
+    └── Governance/
+        └── HttpServiceRegisterListener.php   # 把 HTTP 服务注册进 Nacos（第 5 章）
 ```
+
+> 第 5 章加的两个类：`HealthController` 是"每个服务都必须有、逻辑完全一样"的探针；
+> `HttpServiceRegisterListener` 是因为 Hyperf 只会自动注册 `#[RpcService]` 的 RPC 服务，
+> 纯 HTTP 服务得自己注册（详见第 5 章 5.6）。
 
 ## 怎么挂到服务上
 

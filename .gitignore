@@ -7,3 +7,5 @@
 /user-service/vendor
 /user-service/runtime
 /.idea
+/product-service/runtime/
+/gateway/runtime/

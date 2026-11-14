@@ -11,14 +11,6 @@ declare(strict_types=1);
  */
 use Hyperf\HttpServer\Router\Router;
 
-
 Router::get('/favicon.ico', function () {
     return '';
-});
-
-Router::get('/api/hello', function () {
-    return [
-        'code' => 0,
-        'msg' => 'success',
-    ];
 });
